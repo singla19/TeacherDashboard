@@ -1,0 +1,38 @@
+# Node modules
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Build outputs
+frontend/build/
+backend/dist/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+
+# Environment variables
+.env
+backend/.env
+frontend/.env
+
+# OS/system files
+.DS_Store
+Thumbs.db
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# Cache
+.cache/
+.next/
+.parcel-cache/
+*.tgz
+
+# Misc
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
