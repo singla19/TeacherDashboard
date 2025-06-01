@@ -10,7 +10,7 @@ function Classes() {
 
   // Fetch classes from backend
   useEffect(() => {
-    axios.get('http://localhost:5000/api/classes')
+    axios.get(`${import.meta.env.VITE_API_URL}/api/classes`)
       .then((res) => setClasses(res.data))
       .catch((err) => console.error('Error fetching classes:', err));
   }, []);
@@ -18,7 +18,7 @@ function Classes() {
   const handleAddClass = async () => {
     if (newClassName && newClassStudents) {
       try {
-        const res = await axios.post('http://localhost:5000/api/classes', {
+        const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/classes`, {
           name: newClassName,
           studentsCount: Number(newClassStudents),
         });

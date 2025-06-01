@@ -20,10 +20,10 @@ function ClassDetails() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const classRes = await axios.get(`http://localhost:5000/api/classes/${id}`);
+        const classRes = await axios.get(`${import.meta.env.VITE_API_URL}/api/classes/${id}`);
         setClassDetails(classRes.data);
 
-        const assignmentsRes = await axios.get(`http://localhost:5000/api/assignments?classId=${id}`);
+        const assignmentsRes = await axios.get(`${import.meta.env.VITE_API_URL}/api/assignments?classId=${id}`);
         setAssignments(assignmentsRes.data);
       } catch (err) {
         console.error('Error fetching data:', err);
@@ -50,7 +50,7 @@ function ClassDetails() {
     if (pdfFile) form.append('pdf', pdfFile);
 
     try {
-      const res = await axios.post('http://localhost:5000/api/assignments', form);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/assignments`, form);
       setAssignments([...assignments, res.data]);
       setFormData({ newAssignment: '', newDeadline: '' });
       setPdfFile(null);
@@ -63,7 +63,7 @@ function ClassDetails() {
     if (!newComment.trim()) return;
 
     try {
-      const res = await axios.post(`http://localhost:5000/api/assignments/${assignmentId}/comment`, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/assignments/${assignmentId}/comment`, {
         comment: newComment,
       });
 
@@ -136,7 +136,7 @@ function ClassDetails() {
 
               {assign.pdfUrl && (
                 <a
-                  href={`http://localhost:5000${assign.pdfUrl}`}
+                  href={`${import.meta.env.VITE_API_URL}${assign.pdfUrl}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 underline"
