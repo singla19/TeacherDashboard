@@ -13,7 +13,6 @@ const Doubts = () => {
   };
 
   const handleSubmit = (id) => {
-    // Handle submitting the answer (e.g., save to a database)
     console.log(`Answer submitted for doubt ID ${id}`);
   };
 

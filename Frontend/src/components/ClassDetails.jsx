@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 function ClassDetails() {
-  const { id } = useParams();
+  const {id} = useParams();
   const [classDetails, setClassDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [assignments, setAssignments] = useState([]);
@@ -89,7 +89,6 @@ function ClassDetails() {
     <div className="max-w-5xl mx-auto p-6 space-y-10 bg-white rounded-lg shadow">
       <h2 className="text-4xl font-bold text-center text-indigo-600">{classDetails.name}</h2>
 
-      {/* Assignments Section */}
       <section className="space-y-4">
         <h3 className="text-2xl font-semibold text-gray-700">Post New Assignment</h3>
 
@@ -123,7 +122,6 @@ function ClassDetails() {
           Add Assignment
         </button>
 
-        {/* Posted Assignments */}
         <ul className="space-y-4 mt-6">
           {assignments.map((assign) => (
             <li key={assign._id} className="border p-4 rounded-lg shadow-sm space-y-2">

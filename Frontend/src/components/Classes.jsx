@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -8,7 +8,6 @@ function Classes() {
   const [classes, setClasses] = useState([]);
   const [showForm, setShowForm] = useState(false);
 
-  // Fetch classes from backend
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_URL}/api/classes`)
       .then((res) => setClasses(res.data))
@@ -23,7 +22,7 @@ function Classes() {
           studentsCount: Number(newClassStudents),
         });
 
-        setClasses([...classes, res.data]); // Add new class to state
+        setClasses([...classes, res.data]);
         setNewClassName('');
         setNewClassStudents('');
         setShowForm(false);
